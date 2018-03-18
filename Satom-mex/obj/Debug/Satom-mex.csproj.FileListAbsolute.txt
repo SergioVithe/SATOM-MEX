@@ -1,0 +1,55 @@
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe.config
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\bin\Debug\Satom-mex.pdb
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csprojResolveAssemblyReference.cache
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.Form1.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmClientes.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmConfiguracion.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmEmpleado.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmJefedpto.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmModopago.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmProveedor.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.Properties.Resources.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.sucursal_1.resources
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csproj.GenerateResource.Cache
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom-mex.exe
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom-mex.pdb
+C:\Users\Developer\Documents\Visual Studio 2012\Projects\Practicas\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmLogin.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe.config
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom-mex.exe
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom-mex.pdb
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\bin\Debug\Satom-mex.pdb
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csprojResolveAssemblyReference.cache
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.Form1.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmClientes.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmConfiguracion.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmEmpleado.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmJefedpto.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmLogin.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmModopago.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmProveedor.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.Properties.Resources.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom_mex.sucursal_1.resources
+C:\Users\mio\Desktop\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csproj.GenerateResource.Cache
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe.config
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom-mex.exe
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom-mex.pdb
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.Form1.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmClientes.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmConfiguracion.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmEmpleado.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmJefedpto.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmLogin.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmModopago.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmProveedor.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.Properties.Resources.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.sucursal_1.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csproj.GenerateResource.Cache
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\bin\Debug\Satom-mex.pdb
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\bin\Debug\MySql.Data.dll
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom_mex.frmEstadistica.resources
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csprojResolveAssemblyReference.cache
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\bin\Debug\itextsharp.dll
+C:\Users\sergi\Documents\Visual Studio 2012\Projects\Satom-mex\Satom-mex\bin\Debug\itextsharp.xml
