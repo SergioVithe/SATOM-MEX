@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -81,10 +82,14 @@
             this.btnCalculaMayor = new System.Windows.Forms.Button();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCalculaMenor = new System.Windows.Forms.Button();
-            this.txtProbaMenor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtProbaMenor = new System.Windows.Forms.TextBox();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtMostrarNClases = new System.Windows.Forms.TextBox();
@@ -111,10 +116,10 @@
             this.btnGenerarPDF = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -122,13 +127,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -271,6 +276,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -283,12 +290,21 @@
             this.Column6,
             this.Column7,
             this.Column8});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(21, 225);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Fuchsia;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(844, 239);
             this.dataGridView1.TabIndex = 19;
             // 
@@ -296,41 +312,49 @@
             // 
             this.Column1.HeaderText = "Clave";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "LI";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "LS";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Frecuencia";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Marca de Clase";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Media";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Varianza";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Fa";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // listBox2
             // 
@@ -362,7 +386,7 @@
             this.groupBox2.Controls.Add(this.chart1);
             this.groupBox2.Location = new System.Drawing.Point(21, 470);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(725, 350);
+            this.groupBox2.Size = new System.Drawing.Size(715, 350);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Grafica";
@@ -375,7 +399,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 19);
+            this.chart1.Location = new System.Drawing.Point(-35, 44);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "PointWidth=1";
@@ -389,7 +413,7 @@
             series2.ShadowColor = System.Drawing.Color.Red;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(713, 300);
+            this.chart1.Size = new System.Drawing.Size(879, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -510,6 +534,57 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Probabilidad";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(22, 19);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(853, 387);
+            this.tabControl1.TabIndex = 33;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnCalculaMenor);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.txtProbaMenor);
+            this.tabPage1.Controls.Add(this.chart2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(845, 361);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Menor a";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnCalculaMenor
+            // 
+            this.btnCalculaMenor.Location = new System.Drawing.Point(179, 6);
+            this.btnCalculaMenor.Name = "btnCalculaMenor";
+            this.btnCalculaMenor.Size = new System.Drawing.Size(125, 57);
+            this.btnCalculaMenor.TabIndex = 24;
+            this.btnCalculaMenor.Text = "Calcula Menor";
+            this.btnCalculaMenor.UseVisualStyleBackColor = true;
+            this.btnCalculaMenor.Click += new System.EventHandler(this.btnCalculaMenor_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Menor a";
+            // 
+            // txtProbaMenor
+            // 
+            this.txtProbaMenor.Location = new System.Drawing.Point(73, 34);
+            this.txtProbaMenor.Name = "txtProbaMenor";
+            this.txtProbaMenor.Size = new System.Drawing.Size(100, 20);
+            this.txtProbaMenor.TabIndex = 23;
+            // 
             // chart2
             // 
             chartArea4.Name = "ChartArea1";
@@ -537,31 +612,33 @@
             this.chart2.TabIndex = 25;
             this.chart2.Text = "chart2";
             // 
-            // btnCalculaMenor
+            // tabPage3
             // 
-            this.btnCalculaMenor.Location = new System.Drawing.Point(179, 6);
-            this.btnCalculaMenor.Name = "btnCalculaMenor";
-            this.btnCalculaMenor.Size = new System.Drawing.Size(125, 57);
-            this.btnCalculaMenor.TabIndex = 24;
-            this.btnCalculaMenor.Text = "Calcula Menor";
-            this.btnCalculaMenor.UseVisualStyleBackColor = true;
-            this.btnCalculaMenor.Click += new System.EventHandler(this.btnCalculaMenor_Click_1);
+            this.tabPage3.Controls.Add(this.btnCalculaMayor);
+            this.tabPage3.Controls.Add(this.chart3);
+            this.tabPage3.Controls.Add(this.txtProbaMayor);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(845, 361);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Mayor a";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // txtProbaMenor
+            // tabPage2
             // 
-            this.txtProbaMenor.Location = new System.Drawing.Point(73, 34);
-            this.txtProbaMenor.Name = "txtProbaMenor";
-            this.txtProbaMenor.Size = new System.Drawing.Size(100, 20);
-            this.txtProbaMenor.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Menor a";
+            this.tabPage2.Controls.Add(this.chart4);
+            this.tabPage2.Controls.Add(this.btnCalculaEntre);
+            this.tabPage2.Controls.Add(this.txtProbaMenorEntre);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.txtProbaMayorEntre);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(845, 361);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Entre";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -800,58 +877,43 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "IMC dentro del rango de fecha";
             // 
-            // tabControl1
+            // label20
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(22, 19);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(853, 387);
-            this.tabControl1.TabIndex = 33;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(871, 284);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 13);
+            this.label20.TabIndex = 25;
+            this.label20.Text = "Color Mediana";
             // 
-            // tabPage1
+            // label21
             // 
-            this.tabPage1.Controls.Add(this.btnCalculaMenor);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.txtProbaMenor);
-            this.tabPage1.Controls.Add(this.chart2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(845, 361);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Menor a";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(872, 308);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 13);
+            this.label21.TabIndex = 33;
+            this.label21.Text = "Color Moda";
             // 
-            // tabPage2
+            // label22
             // 
-            this.tabPage2.Controls.Add(this.chart4);
-            this.tabPage2.Controls.Add(this.btnCalculaEntre);
-            this.tabPage2.Controls.Add(this.txtProbaMenorEntre);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.txtProbaMayorEntre);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(845, 361);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Entre";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.DarkGreen;
+            this.label22.Location = new System.Drawing.Point(952, 308);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(67, 13);
+            this.label22.TabIndex = 34;
+            this.label22.Text = "__________";
             // 
-            // tabPage3
+            // label23
             // 
-            this.tabPage3.Controls.Add(this.btnCalculaMayor);
-            this.tabPage3.Controls.Add(this.chart3);
-            this.tabPage3.Controls.Add(this.txtProbaMayor);
-            this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(845, 361);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Mayor a";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Brown;
+            this.label23.Location = new System.Drawing.Point(952, 284);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(67, 13);
+            this.label23.TabIndex = 35;
+            this.label23.Text = "__________";
             // 
             // frmEstadistica
             // 
@@ -860,6 +922,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnGenerarPDF);
             this.Controls.Add(this.btnGraficar);
@@ -872,7 +938,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmEstadistica";
-            this.Size = new System.Drawing.Size(892, 670);
+            this.Size = new System.Drawing.Size(875, 653);
             this.Load += new System.EventHandler(this.frmEstadistica_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -882,19 +948,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -971,5 +1038,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

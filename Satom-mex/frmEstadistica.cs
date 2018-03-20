@@ -176,7 +176,7 @@ namespace Satom_mex
         }
 
 
-        double media;
+        double media=0;
         public void Media()
         {
 
@@ -190,7 +190,7 @@ namespace Satom_mex
            // MessageBox.Show("Media " + sum);
         }
 
-        double varianza;
+        double varianza=0;
         public void Varianza()
         {
             for (int x = 0; x < NumeroDeClase; x++)
@@ -201,6 +201,7 @@ namespace Satom_mex
             varianza = Math.Round(varianza, 1);
             txtMostrarVarianza.Text = varianza.ToString();
             //MessageBox.Show("total de Varianza" + sum2);
+            
         }
         double desviacion;
         public void desviacionEstandar()
@@ -213,7 +214,7 @@ namespace Satom_mex
         }
 
         float sum4;
-        int sum41;
+        double sum41;
         //double sum42;
         //double sum43;
         double sum44;
@@ -223,23 +224,53 @@ namespace Satom_mex
         {
             mas1 = (DatosClientes.Length +1);
             sum4 = mas1 / 2;
-            sum41 = Convert.ToInt32(NumeroDeClase / 2);
-            //sum42 = (Convert.ToDouble(dataGridView1.Rows[sum41-1].Cells[7].Value.ToString()))+1;
-
-            double aux = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString());
-            sum44 = Convert.ToDouble(dataGridView1.Rows[0].Cells[1].Value.ToString());
-
-            for (int x = 0; x < NumeroDeClase; x++)
-            {
-                if (Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString()) > aux)
-                {
-                    aux = Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString());
-                    sum44 = Convert.ToDouble(dataGridView1.Rows[x].Cells[1].Value.ToString());
-                }
-            }
 
             
-            double fa=Convert.ToDouble(dataGridView1.Rows[sum41-1].Cells[7].Value.ToString());
+            sum41 =Math.Round(NumeroDeClase) / 2;
+            double fa=0;
+            double clase=Math.Round(sum41);
+            //sum42 = (Convert.ToDouble(dataGridView1.Rows[sum41-1].Cells[7].Value.ToString()))+1;
+
+            double aux = Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value.ToString());
+            clase = clase - 1;
+            Boolean a = true;
+            int colorRow = 0;
+            for (int i = 0; i < NumeroDeClase; i++)
+            {
+                
+                if (Convert.ToDouble(dataGridView1.Rows[i].Cells[0].Value.ToString()) == clase && a)
+                {
+                    fa = Convert.ToDouble(dataGridView1.Rows[i].Cells[7].Value.ToString());
+                    clase = clase + 1;
+                    
+                    a = false;
+                }
+                if (Convert.ToDouble(dataGridView1.Rows[i].Cells[0].Value.ToString()) == clase)
+                {
+                    colorRow = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value.ToString());
+                    aux = Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                    sum44 = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value.ToString());
+                    
+                }
+
+                
+            }
+
+
+            dataGridView1.Rows[colorRow - 1].DefaultCellStyle.BackColor = Color.Brown;
+            //sum44 = Convert.ToDouble(dataGridView1.Rows[0].Cells[1].Value.ToString());
+
+            //for (int x = 0; x < NumeroDeClase; x++)
+            //{
+            //    if (Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString()) > aux)
+            //    {
+            //        aux = Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString());
+            //        sum44 = Convert.ToDouble(dataGridView1.Rows[x].Cells[1].Value.ToString());
+            //    }
+            //}
+
+            
+             
             medianaa = Math.Round(((sum4 - (1 + fa)) / aux) * AnchuradeClases + sum44, 1);
             txtMostrarMediana.Text = medianaa.ToString();
             //dataGridView1.Rows[(int)medianaa].DefaultCellStyle.BackColor = Color.AliceBlue;
@@ -252,32 +283,67 @@ namespace Satom_mex
 
             double aux = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString());
             double d1 = 0, d2 = 0, mo = 0, lm = 0; ;
+            double famas1 = 0;
+            Boolean bandera = true;
+            int colorRow =0;
             for (int x = 0; x < NumeroDeClase - 1; x++)
             {
-                if (Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString()) > aux)
+                if (bandera == false)
                 {
+                    famas1 = Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString());
+                    
+                    bandera = true;
+
+                }
+                if (Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString()) >= aux)
+                {
+                    colorRow = Convert.ToInt32(dataGridView1.Rows[x].Cells[0].Value.ToString());
                     aux = Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString());
                     lm = Convert.ToDouble(dataGridView1.Rows[x].Cells[1].Value.ToString());
                     mo = aux;
                     d1 = Convert.ToDouble(dataGridView1.Rows[x + 1].Cells[3].Value.ToString());
-                    d2 = Convert.ToDouble(dataGridView1.Rows[x - 1].Cells[3].Value.ToString());
+                    try
+                    {
+                        d2 = Convert.ToDouble(dataGridView1.Rows[x - 1].Cells[3].Value.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        d2 = 0;// Convert.ToDouble(dataGridView1.Rows[x ].Cells[3].Value.ToString());
+                        //throw;
+                    }
+
+
+                    //aux = aux + 1;
+                    bandera = false;
                 }
+
+                
             }
 
-            d1 = mo - d1;
-            d2 = mo - d2;
+            dataGridView1.Rows[colorRow-1].DefaultCellStyle.BackColor = Color.DarkGreen;
+            d1 = aux - famas1;//8
+            double a =mo-d2;
+            d2 = a;
 
-            double formula = lm + (d1 / (d1 + d2)) * AnchuradeClases;
+
+            double form= lm+(d1/(d1+d2))*AnchuradeClases;
+
+            //d1 = aux - d1;
+            
+
+            
+
+            //double formula = lm + (d1 / (d1 + d2)) * AnchuradeClases;
             //int er = Math.Round(Convert.ToInt32(formula));
             //dataGridView1.Rows[].DefaultCellStyle.BackColor = Color.AliceBlue;
             //MessageBox.Show(formula.ToString());
             //   MessageBox.Show("Moda " + formula);
 
-            txtMostrarModa.Text = formula.ToString();
-            txtProbaMayor.Text = Math.Round(formula + 3).ToString();
-            txtProbaMenor.Text = Math.Round(formula - 2).ToString();
-            txtProbaMenorEntre.Text = Math.Round(formula - 2).ToString();
-            txtProbaMayorEntre.Text = Math.Round(formula + 3).ToString();
+            txtMostrarModa.Text = Math.Round(form,1).ToString();
+            txtProbaMayor.Text = Math.Round(form + 3).ToString();
+            txtProbaMenor.Text = Math.Round(form - 2).ToString();
+            txtProbaMenorEntre.Text = Math.Round(form - 2).ToString();
+            txtProbaMayorEntre.Text = Math.Round(form + 3).ToString();
         }
 
 
@@ -527,7 +593,8 @@ namespace Satom_mex
         }
         private void btnGraficar_Click(object sender, EventArgs e)
         {
-             
+            double[] DatosClientes = new double[]{};
+            
             GuardardatosArrayBD(dtefechaInicial, dtefechaFinal,txtDatosMuestra.Text);
             
             noordenAList();//los ordena y los muestra en el listbox1
