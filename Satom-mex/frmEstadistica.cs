@@ -24,7 +24,7 @@ namespace Satom_mex
         double AnchuradeClases = 0;
         double DatoMayor = 0;
         double DatoMenor = 0;
-        public MySqlConnection conectar = new MySqlConnection("Server=localhost;Database=bdservice; User Id=root;Password=");
+        public MySqlConnection conectar;//= new MySqlConnection("Server=localhost;Database=bdservice; User Id=root;Password=");
         int totalRegistros = 0;
         // double[] datEstaticos = new double[] { 49, 68, 70, 98, 100, 95, 70, 96, 85, 100, 83, 89, 60, 66, 55, 55, 65, 77, 80, 92, 93, 70, 87, 74, 66, 95, 65, 87, 45, 77, 67, 93, 60, 75, 69, 52, 82, 78, 92, 56, 98, 58, 56, 70, 70, 74, 75, 64, 77, 50 };
         double[] DatosClientes = { };
@@ -32,6 +32,10 @@ namespace Satom_mex
         public frmEstadistica()
         {
             InitializeComponent();
+            string[] cadenas = { };
+            ClsInicio acceso = new ClsInicio();
+            cadenas = acceso.datosBaseDatos().Split('=', ';');
+            conectar = new MySqlConnection("Server=" + cadenas[1] + ";Database=" + cadenas[3] + "; User Id=" + cadenas[5] + ";Password=" + cadenas[7]);
 
 
         }
@@ -176,7 +180,7 @@ namespace Satom_mex
         }
 
 
-        double media=0;
+        double media = 0;
         public void Media()
         {
 
@@ -187,10 +191,11 @@ namespace Satom_mex
             media = media / DatosClientes.Length;
             media = Math.Round(media, 1);
             txtMostrarMedia.Text = media.ToString();
-           // MessageBox.Show("Media " + sum);
+            lblMostrarMedia.Text = media.ToString();
+            // MessageBox.Show("Media " + sum);
         }
 
-        double varianza=0;
+        double varianza = 0;
         public void Varianza()
         {
             for (int x = 0; x < NumeroDeClase; x++)
@@ -201,7 +206,7 @@ namespace Satom_mex
             varianza = Math.Round(varianza, 1);
             txtMostrarVarianza.Text = varianza.ToString();
             //MessageBox.Show("total de Varianza" + sum2);
-            
+
         }
         double desviacion;
         public void desviacionEstandar()
@@ -209,8 +214,9 @@ namespace Satom_mex
             desviacion = Math.Sqrt(varianza);
             desviacion = Math.Round(desviacion, 1);
             txtMostrarDesviacionEstandar.Text = desviacion.ToString();
+            lblMostrarDesviacion.Text = desviacion.ToString();
 
-           // MessageBox.Show("Desviación Estandar" + sum3);
+            // MessageBox.Show("Desviación Estandar" + sum3);
         }
 
         float sum4;
@@ -222,13 +228,13 @@ namespace Satom_mex
         float mas1;
         public void Mediana()
         {
-            mas1 = (DatosClientes.Length +1);
+            mas1 = (DatosClientes.Length + 1);
             sum4 = mas1 / 2;
 
-            
-            sum41 =Math.Round(NumeroDeClase) / 2;
-            double fa=0;
-            double clase=Math.Round(sum41);
+
+            sum41 = Math.Round(NumeroDeClase) / 2;
+            double fa = 0;
+            double clase = Math.Round(sum41);
             //sum42 = (Convert.ToDouble(dataGridView1.Rows[sum41-1].Cells[7].Value.ToString()))+1;
 
             double aux = Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value.ToString());
@@ -237,12 +243,12 @@ namespace Satom_mex
             int colorRow = 0;
             for (int i = 0; i < NumeroDeClase; i++)
             {
-                
+
                 if (Convert.ToDouble(dataGridView1.Rows[i].Cells[0].Value.ToString()) == clase && a)
                 {
                     fa = Convert.ToDouble(dataGridView1.Rows[i].Cells[7].Value.ToString());
                     clase = clase + 1;
-                    
+
                     a = false;
                 }
                 if (Convert.ToDouble(dataGridView1.Rows[i].Cells[0].Value.ToString()) == clase)
@@ -250,10 +256,10 @@ namespace Satom_mex
                     colorRow = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value.ToString());
                     aux = Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value.ToString());
                     sum44 = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value.ToString());
-                    
+
                 }
 
-                
+
             }
 
 
@@ -269,8 +275,8 @@ namespace Satom_mex
             //    }
             //}
 
-            
-             
+
+
             medianaa = Math.Round(((sum4 - (1 + fa)) / aux) * AnchuradeClases + sum44, 1);
             txtMostrarMediana.Text = medianaa.ToString();
             //dataGridView1.Rows[(int)medianaa].DefaultCellStyle.BackColor = Color.AliceBlue;
@@ -285,13 +291,13 @@ namespace Satom_mex
             double d1 = 0, d2 = 0, mo = 0, lm = 0; ;
             double famas1 = 0;
             Boolean bandera = true;
-            int colorRow =0;
+            int colorRow = 0;
             for (int x = 0; x < NumeroDeClase - 1; x++)
             {
                 if (bandera == false)
                 {
                     famas1 = Convert.ToDouble(dataGridView1.Rows[x].Cells[3].Value.ToString());
-                    
+
                     bandera = true;
 
                 }
@@ -317,21 +323,21 @@ namespace Satom_mex
                     bandera = false;
                 }
 
-                
+
             }
 
-            dataGridView1.Rows[colorRow-1].DefaultCellStyle.BackColor = Color.DarkGreen;
+            dataGridView1.Rows[colorRow - 1].DefaultCellStyle.BackColor = Color.DarkGreen;
             d1 = aux - famas1;//8
-            double a =mo-d2;
+            double a = mo - d2;
             d2 = a;
 
 
-            double form= lm+(d1/(d1+d2))*AnchuradeClases;
+            double form = lm + (d1 / (d1 + d2)) * AnchuradeClases;
 
             //d1 = aux - d1;
-            
 
-            
+
+
 
             //double formula = lm + (d1 / (d1 + d2)) * AnchuradeClases;
             //int er = Math.Round(Convert.ToInt32(formula));
@@ -339,16 +345,28 @@ namespace Satom_mex
             //MessageBox.Show(formula.ToString());
             //   MessageBox.Show("Moda " + formula);
 
-            txtMostrarModa.Text = Math.Round(form,1).ToString();
-            txtProbaMayor.Text = Math.Round(form + 3).ToString();
-            txtProbaMenor.Text = Math.Round(form - 2).ToString();
-            txtProbaMenorEntre.Text = Math.Round(form - 2).ToString();
-            txtProbaMayorEntre.Text = Math.Round(form + 3).ToString();
+            txtMostrarModa.Text = Math.Round(form, 1).ToString();
+            txtProbaMayor.Text = Math.Round((media + 5)).ToString();
+            txtProbaMenor.Text = Math.Round((media - 5)).ToString();
+            txtProbaMenorEntre.Text = Math.Round((media - 5)).ToString();
+            txtProbaMayorEntre.Text = Math.Round((media + 5)).ToString();
         }
 
 
         public void histograma()
         {
+
+            if (chart1.Series.Count > 0)
+            {
+                foreach (var item in chart1.Series)
+                {
+                    item.Points.Clear();
+                }
+            }
+            if (chart1.Titles.Count > 0)
+            {
+                chart1.Titles.RemoveAt(0);
+            }
 
             chart1.Titles.Add("Histograma");
             int rep = Convert.ToInt32(NumeroDeClase);
@@ -364,8 +382,8 @@ namespace Satom_mex
             }
         }
 
-        
-        
+
+
 
         public int Contar(double men, double may)
         {
@@ -414,6 +432,30 @@ namespace Satom_mex
 
         private void CrearCurva(int rep, double[] arr, double inc)
         {
+
+            if (chart2.Series.Count > 0)
+            {
+                foreach (var item in chart2.Series)
+                {
+                    item.Points.Clear();
+                }
+            }
+
+            if (chart3.Series.Count > 0)
+            {
+                foreach (var item in chart3.Series)
+                {
+                    item.Points.Clear();
+                }
+            }
+
+            if (chart4.Series.Count > 0)
+            {
+                foreach (var item in chart4.Series)
+                {
+                    item.Points.Clear();
+                }
+            }
 
             //int num = rep / 3;
             //int aux = num;
@@ -550,86 +592,223 @@ namespace Satom_mex
 
 
 
-        private void btnCalculaMenor_Click_1(object sender, EventArgs e)
+        //private void btnCalculaMenor_Click_1(object sender, EventArgs e)
+        //{
+
+        //}
+        private void btnCalculaMenor_Click(object sender, EventArgs e)
         {
-            CrearCurvaMenor(Convert.ToDouble(txtProbaMenor.Text));
+            double datomenor1 = Convert.ToDouble(txtProbaMenor.Text);
+
+            if (datomenor1 < media)
+            {
+                CrearCurvaMenor(datomenor1);
+                calculaProbabilidadMenor(datomenor1);
+                DialogResult result = MessageBox.Show("Realmente desea generar el reporte?", "Esperando confirmación", MessageBoxButtons.YesNo);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    GenerarPDFProbabilidad(" Menor ", chart2, datomenor1.ToString());
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("El dato debe ser menor a la media.");
+            }
+
+
         }
 
-        private void btnCalculaEntre_Click(object sender, EventArgs e)
+
+        public void calculaProbabilidadMenor(double x)
         {
-            CrearCurvaEntre(Convert.ToDouble(txtProbaMenorEntre.Text), Convert.ToDouble(txtProbaMayorEntre.Text));
+            double media = 0;
+            double desviacion = 0;
+            double z = 0;
+            double result = 0;
+            media = Convert.ToDouble(lblMostrarMedia.Text.ToString());
+            desviacion = Convert.ToDouble(lblMostrarDesviacion.Text.ToString());
+            z = ((x - media) / desviacion);
+            double RedondeoZ = Math.Round(z, 2);
+            result = chart1.DataManipulator.Statistics.NormalDistribution(RedondeoZ);
+            double multiplicado = result * 100;
+            lblMostrarCalculoX.Text = Math.Round(z, 3).ToString();
+            lblMostrarX.Text = Math.Round(result, 4).ToString();
+            lblMostrarPorCien.Text = Math.Round(multiplicado, 2).ToString() + "% de probabilidad.";
+            //MessageBox.Show(result.ToString());
         }
 
-        private void btnCalculaMayor_Click(object sender, EventArgs e)
+
+        private void btnCalculaMayor_Click_1(object sender, EventArgs e)
         {
-            CrearCurvaMayor(Convert.ToDouble(txtProbaMayor.Text));
+            double datoMayor1 = Convert.ToDouble(txtProbaMayor.Text);
+            if (datoMayor1 > media)
+            {
+
+                CrearCurvaMayor(datoMayor1);
+                calculaProbabilidadMayor(datoMayor1);
+                DialogResult result = MessageBox.Show("Realmente desea generar el reporte?", "Esperando confirmación", MessageBoxButtons.YesNo);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    GenerarPDFProbabilidad(" Mayor ", chart3, datoMayor1.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("El dato debe ser mayor a la media.");
+            }
+
         }
-        int poblacion =0;
+
+        private void btnCalculaEntre_Click_1(object sender, EventArgs e)
+        {
+            double datomenor = Convert.ToDouble(txtProbaMenorEntre.Text);
+            double datomayor = Convert.ToDouble(txtProbaMayorEntre.Text);
+
+
+            if (datomenor < media && datomayor > media)
+            {
+                CrearCurvaEntre(datomenor, datomayor);
+                calculaProbabilidadEntre(datomenor, datomayor);
+
+                DialogResult result = MessageBox.Show("Realmente desea generar el reporte?", "Esperando confirmación", MessageBoxButtons.YesNo);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    GenerarPDFProbabilidad(" Entre ", chart4, datomenor.ToString() + " y " + datomayor.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Los datos deben de estar correctos");
+            }
+
+        }
+
+        //private void btnCalculaEntre_Click(object sender, EventArgs e)
+        //{
+        //    double datomenor = Convert.ToDouble(txtProbaMenorEntre.Text);
+        //    double datomayor = Convert.ToDouble(txtProbaMayorEntre.Text);
+        //    CrearCurvaEntre(datomenor, datomayor);
+        //    calculaProbabilidadEntre(datomenor, datomayor);
+
+        //}
+
+        //private void btnCalculaMayor_Click(object sender, EventArgs e)
+        //{
+        //    double datoMayor1 = Convert.ToDouble(txtProbaMayor.Text);
+        //    CrearCurvaMayor(datoMayor1);
+        //    calculaProbabilidadMayor(datoMayor1);
+        //}
+
+        public void calculaProbabilidadMayor(double x)
+        {
+            label27.Text = "";
+            double media = 0;
+            double desviacion = 0;
+            double z = 0;
+            double result = 0;
+            media = Convert.ToDouble(lblMostrarMedia.Text.ToString());
+            desviacion = Convert.ToDouble(lblMostrarDesviacion.Text.ToString());
+            z = ((x - media) / desviacion);
+            result = chart1.DataManipulator.Statistics.NormalDistribution(Math.Round(z, 2));
+            double mul = result * 100;
+
+
+
+            double multiplicado = 100 - mul;
+
+            lblMostrarCalculoX.Text = Math.Round(z, 4).ToString();
+            lblMostrarX.Text = Math.Round(result, 4).ToString();
+            lblMostrarPorCien.Text = Math.Round(multiplicado, 2).ToString() + "% de probabilidad.";
+            //MessageBox.Show(result.ToString());
+        }
+
+
+        public void calculaProbabilidadEntre(double x, double y)
+        {
+            double z1 = 0;
+            double z2 = 0;
+            if (x > y)
+            {
+                z1 = x;
+                z2 = y;
+            }
+            else
+            {
+                z1 = y;
+                z2 = x;
+            }
+
+
+            double media = 0;
+            double desviacion = 0;
+            double valorz1 = 0;
+            double valorz2 = 0;
+            double resultz1 = 0;
+            double resultz2 = 0;
+
+
+            media = Convert.ToDouble(lblMostrarMedia.Text.ToString());
+            desviacion = Convert.ToDouble(lblMostrarDesviacion.Text.ToString());
+
+
+
+            valorz1 = ((z1 - media) / desviacion);
+            resultz1 = chart1.DataManipulator.Statistics.NormalDistribution(Math.Round(valorz1, 2));
+
+
+            valorz2 = ((z2 - media) / desviacion);
+            resultz2 = chart1.DataManipulator.Statistics.NormalDistribution(Math.Round(valorz2, 2));
+
+            double r = Math.Round(resultz1, 2) - Math.Round(resultz2, 2);
+            double z = r * 100;
+            lblMostrarCalculoX.Text = " Z1= " + Math.Round(valorz1, 4) + "  y  Z2= " + Math.Round(valorz2, 4).ToString();
+            lblMostrarX.Text = Math.Round(r, 4).ToString();
+            lblMostrarPorCien.Text = Math.Round(z, 2).ToString() + "% de probabilidad.";
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+        int poblacion = 0;
         double n = 0;
         string dtefechaFinal = "";
         string dtefechaInicial = "";
-        private void btnExtraer_Click(object sender, EventArgs e)
-        {
-             dtefechaInicial = dteInicial.Value.Date.ToString("yyyy-MM-dd");
-             dtefechaFinal = dteFinal.Value.Date.ToString("yyyy-MM-dd");
-           // totaldatos(dtefechaInicial, dtefechaFinal);
-            //GuardardatosArrayBD(dtefechaInicial, dtefechaFinal);
-            txtDatosTotales.Enabled = false;
-            poblacion = totaldatos(dtefechaInicial, dtefechaFinal);
-            txtDatosTotales.Text = poblacion.ToString();
-            btnCalcularMuestra.Enabled = true;
-            //poblacion=Convert.ToInt32( txtDatosTotales.Text);
-            //orden();
-            //noorden();
-            ////xaorden();
-            ////Ordenar();
-            //RegladeSturgess();
-            //VerRango();
-            //AnchuradeClase();
-            //CreaTabla();
-            //CreaTabla2();
-            //Prob();
-            //txtDatosMuestra.Text=calculamuestra(cmbE).ToString();
-        }
-        private void btnGraficar_Click(object sender, EventArgs e)
-        {
-            double[] DatosClientes = new double[]{};
-            
-            GuardardatosArrayBD(dtefechaInicial, dtefechaFinal,txtDatosMuestra.Text);
-            
-            noordenAList();//los ordena y los muestra en el listbox1
-            ordenaList();//los ordena y los muestra en el listbox1
-            Ordenar();
-            RegladeSturgess();
-            VerRango();
-            MetodoAnchuradeClase();
-            CreaTabla();
-            CreaTabla2();
-            Prob();
-            btnCalculaMayor.Enabled = true;
-            btnCalculaEntre.Enabled = true;
-            btnCalculaMenor.Enabled = true;
-            btnGenerarPDF.Enabled = true;
-            
-            
-        }
+
+
+
+
 
         private void btnCalcularMuestra_Click(object sender, EventArgs e)
         {
             txtDatosMuestra.Text = Math.Round(calculamuestra(cmbE), 2).ToString();
             btnGraficar.Enabled = true;
         }
-        
-        
+
+
         public double calculamuestra(ComboBox y)
         {
-            double w= Math.Pow(1.96,2);
-            double re=Math.Pow(0.5,2)*w;
-        double r = poblacion * re;
-            double q=poblacion-1;
-            double e=Math.Pow(Convert.ToDouble(y.SelectedItem.ToString()) ,2);
+            double w = Math.Pow(1.96, 2);
+            double re = Math.Pow(0.5, 2) * w;
+            double r = poblacion * re;
+            double q = poblacion - 1;
+            double e = Math.Pow(Convert.ToDouble(y.SelectedItem.ToString()), 2);
 
-            n = ( r / ((q * e) + re));
+            n = (r / ((q * e) + re));
             return Math.Round(n);
         }
 
@@ -652,7 +831,7 @@ namespace Satom_mex
 
         }
 
-        public void GuardardatosArrayBD(string inicial, string final,string limite)
+        public void GuardardatosArrayBD(string inicial, string final, string limite)
         {
             //double[] num = new double[poblacion];//Cambiar la población, asignarle lo que da la muestra
             List<double> resultado = new List<double>();
@@ -678,7 +857,7 @@ namespace Satom_mex
                 //MessageBox.Show("los datos fueron"+Array[i]);
                 listBox1.Items.Add(DatosClientes[i]);
             }
-            
+
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -695,15 +874,116 @@ namespace Satom_mex
             btnGraficar.Enabled = false;
             btnGenerarPDF.Enabled = false;
             btnExtraer.Focus();
-            
+
         }
 
-        private void btnGenerarPDF_Click(object sender, EventArgs e)
-        {
-            
 
-            string FileName ="Reporte generado el " + dtefechaInicial + " a " + dtefechaFinal + " " + cmbE.SelectedItem.ToString() +".pdf";
-           
+
+        private void cmbE_Enter(object sender, EventArgs e)
+        {
+            btnCalcularMuestra.Focus();
+        }
+
+        private void btnExtraer_Click_1(object sender, EventArgs e)
+        {
+            dtefechaInicial = dteInicial.Value.Date.ToString("yyyy-MM-dd");
+            dtefechaFinal = dteFinal.Value.Date.ToString("yyyy-MM-dd");
+            // totaldatos(dtefechaInicial, dtefechaFinal);
+            //GuardardatosArrayBD(dtefechaInicial, dtefechaFinal);
+            txtDatosTotales.Enabled = false;
+            poblacion = totaldatos(dtefechaInicial, dtefechaFinal);
+            txtDatosTotales.Text = poblacion.ToString();
+            btnCalcularMuestra.Enabled = true;
+            //poblacion=Convert.ToInt32( txtDatosTotales.Text);
+            //orden();
+            //noorden();
+            ////xaorden();
+            ////Ordenar();
+            //RegladeSturgess();
+            //VerRango();
+            //AnchuradeClase();
+            //CreaTabla();
+            //CreaTabla2();
+            //Prob();
+            //txtDatosMuestra.Text=calculamuestra(cmbE).ToString();
+            cmbE.Focus();
+        }
+
+        private void btnGraficar_Click_1(object sender, EventArgs e)
+        {
+
+            double[] DatosClientes = new double[] { };
+
+            GuardardatosArrayBD(dtefechaInicial, dtefechaFinal, txtDatosMuestra.Text);
+
+            noordenAList();//los ordena y los muestra en el listbox1
+            ordenaList();//los ordena y los muestra en el listbox1
+            Ordenar();
+            RegladeSturgess();
+            VerRango();
+            MetodoAnchuradeClase();
+            CreaTabla();
+            CreaTabla2();
+            Prob();
+            btnCalculaMayor.Enabled = true;
+            btnCalculaEntre.Enabled = true;
+            btnCalculaMenor.Enabled = true;
+            btnGenerarPDF.Enabled = true;
+        }
+
+
+        public void GenerarPDFProbabilidad(String name, Chart x, string datos)
+        {
+            String Filename = "Reporte de probabilidad " + name + " con " + datos + ", " + dtefechaInicial + " y " + dtefechaFinal + ".pdf";
+            Document document = new Document(iTextSharp.text.PageSize.A4, 10, 10, 42, 35);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(Filename, FileMode.Create));
+            document.Open();
+
+            //Cargo la imagen desde el almacenamiento
+            iTextSharp.text.Image PNG = iTextSharp.text.Image.GetInstance(@"C:\datos\SATOM-MEX.png");
+            PNG.ScaleToFit(100f, 100f);
+            PNG.Border = iTextSharp.text.Rectangle.BOX;
+            //PNG.BorderColor = iTextSharp.text.BaseColor.WHITE;
+            //PNG.BorderWidth = 5f;
+            document.Add(PNG);
+
+
+
+            document.Add(new Chunk("SATOM-MEX", FontFactory.GetFont("Times New Roman", 15, iTextSharp.text.Font.BOLD)));
+
+            document.Add(new Paragraph("Se muestran los siguientes datos dentro de la probabilidad de " + name + " del IMC de los clientes."));
+
+            document.Add(new Paragraph("La media es " + txtMostrarMedia.Text));
+            document.Add(new Paragraph("La desviación estándar es " + txtMostrarDesviacionEstandar.Text));
+            document.Add(new Paragraph("El dato " + name + " introducido es " + datos));
+            document.Add(new Paragraph("Donde X=" + lblMostrarX.Text));
+            document.Add(new Paragraph("Su valor Z=" + lblMostrarCalculoX.Text));
+            document.Add(new Paragraph("Su resultado es " + lblMostrarPorCien.Text));
+
+
+
+
+
+            var chartImage = new MemoryStream();
+            x.SaveImage(chartImage, ChartImageFormat.Png);
+            iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartImage.GetBuffer());
+            Chart_image.ScaleToFit(600f, 600f);
+            document.Add(Chart_image);
+
+
+
+            document.Close();
+
+            MessageBox.Show("Reporte de probabilidad " + name + " creado correctamente!!");
+
+        }
+
+        private void btnGenerarPDF_Click_1(object sender, EventArgs e)
+        {
+
+
+            string FileName = "Reporte generado el " + dtefechaInicial + " a " + dtefechaFinal + " " + cmbE.SelectedItem.ToString() + ".pdf";
+
 
             //genera el documento
             Document document = new Document(iTextSharp.text.PageSize.A4, 10, 10, 42, 35);
@@ -726,16 +1006,26 @@ namespace Satom_mex
             document.Add(PNG);
 
             //Ingreso los titulos que tendra el documento
+
             Chunk Titulo = new Chunk("SATOM-MEX", FontFactory.GetFont("Times New Roman", 15, iTextSharp.text.Font.BOLD));
             Chunk secundario = new Chunk("Salud Alimentaria y Tratamientos Orgánicos Medicinales de México", FontFactory.GetFont("Times New Roman", 13, iTextSharp.text.Font.BOLD));
-            document.Add(new Paragraph(Titulo)); 
+            Chunk datosMuestra = new Chunk("Datos de la población del cliente: " + txtDatosTotales.Text + " entre la fecha " + dtefechaInicial + " y " + dtefechaFinal + ".", FontFactory.GetFont("Times New Roman", 13, iTextSharp.text.Font.BOLD));
+            document.Add(new Paragraph(Titulo));
             document.Add(new Paragraph(secundario));
-            
+            document.Add(new Paragraph(datosMuestra));
+            document.Add(new Paragraph("Grado de confianza: " + cmbE.SelectedItem.ToString() + "."));
+            document.Add(new Paragraph("Total de muestra: " + txtDatosMuestra.Text + "."));
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph("Se muestran los siguientes datos: "));
+
+
+
 
 
             //Agrego los datos del reporte
-            document.Add(new Paragraph("Reporte de " + dtefechaInicial + " al " + dtefechaFinal + ".", FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
-            document.Add(new Paragraph("Tamaño de clases: "+txtMostrarNClases.Text, FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
+            //document.Add(new Paragraph("Reporte de " + dtefechaInicial + " al " + dtefechaFinal + ".", FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
+            document.Add(new Paragraph("Tamaño de clases: " + txtMostrarNClases.Text, FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
             document.Add(new Paragraph("Rango: " + txtMostrarRango.Text, FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
             document.Add(new Paragraph("Anchura de clases: " + txtMostrarAnchura.Text, FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
             document.Add(new Paragraph("Media: " + txtMostrarMedia.Text, FontFactory.GetFont("Times New Roman", 12, iTextSharp.text.Font.ITALIC)));
@@ -748,13 +1038,13 @@ namespace Satom_mex
 
 
 
-           
+
 
             //Agrego la imagen que es capturada desde el módulo y lo cargo en el documento
             var chartImage = new MemoryStream();
             chart1.SaveImage(chartImage, ChartImageFormat.Png);
             iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartImage.GetBuffer());
-            Chart_image.ScaleToFit(600f,600f);
+            Chart_image.ScaleToFit(600f, 600f);
             document.Add(Chart_image);
 
 
@@ -763,17 +1053,29 @@ namespace Satom_mex
 
             MessageBox.Show("Reporte creado exitosamente!!");
 
-            
         }
 
-        
+        private void frmEstadistica_Load_1(object sender, EventArgs e)
+        {
 
-        
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
 
 
-       
+
+
+
+
+
+
+
+
 
     }
 
-    
+
 }

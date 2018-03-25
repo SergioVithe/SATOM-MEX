@@ -79,7 +79,21 @@ namespace Satom_mex
         {
             ClsDatos datos = new ClsDatos();
             string cadena;
-            string filename = @"C:\datos\sysinit.ini";
+            string filename = @"C:\datos\feedback.ini";
+            FileStream Stream = new FileStream(filename, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(Stream);
+            cadena = "Server=" + servidor + ";Database=" + bd + "; User Id=" + user + ";Password=" + pass;
+            string cadenaencriptada = datos.Encriptar(cadena);
+            writer.WriteLine(cadenaencriptada);
+            writer.Close();
+        }
+
+
+        public void crearArchivoConNombre(string nom)
+        {
+            ClsDatos datos = new ClsDatos();
+            string cadena;
+            string filename = @"C:\datos\"+nom+".ini";
             FileStream Stream = new FileStream(filename, FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter writer = new StreamWriter(Stream);
             cadena = "Server=" + servidor + ";Database=" + bd + "; User Id=" + user + ";Password=" + pass;

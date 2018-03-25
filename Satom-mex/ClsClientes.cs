@@ -80,7 +80,7 @@ namespace Satom_mex
                 Cliente.Direccion = _reader.GetString(4);
                 Cliente.Correo = _reader.GetString(5);
                 Cliente.Telefono = _reader.GetString(6);
-                Cliente.FechaN = _reader.GetString(7);
+                Cliente.FechaN = _reader.GetDataTypeName(7);
                 Cliente.IMC = _reader.GetDouble(8);
                 Cliente.Estado = _reader.GetInt32(9);
                
@@ -89,6 +89,19 @@ namespace Satom_mex
             }
             return lista;
         }
+        //Funcion eliminar
+        public static int Eliminar(int IdCliente)
+        {
+            int bandera = 0;
+            MySqlConnection conexion = ClsConexion.ObtenerConexion();
+            MySqlCommand comando = new MySqlCommand(string.Format("Delete From tblCliente where intIdCliente={0}", IdCliente), conexion);
+            bandera = comando.ExecuteNonQuery();
+            conexion.Close();
+            return bandera;
+        }
+        //--------------------------------------------------------------------------
+
+      
         }
 }
   

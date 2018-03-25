@@ -20,11 +20,18 @@ namespace Satom_mex
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+        public void limpia_cajas()
         {
-      
+            txtApellidos.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+            txtDomicilio.Text = "";
+            txtCorreo.Text = "";
+            txtEstatura.Text = "";
+            txtpeso.Text = "";
+            lbl_Imc.Text = "";
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -45,12 +52,13 @@ namespace Satom_mex
                 {
                     MessageBox.Show("Datos guardados con exito!!", "Datos guardados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MostrarDatos_dgvClientes();
+                    limpia_cajas();
                 }
                 else
                 {
                     MessageBox.Show("No se pudo guardar los datos del cliente", "Fallo!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                //limpia_cajas();
+              
                          
         }
         public void MostrarDatos_dgvClientes()
@@ -78,6 +86,7 @@ namespace Satom_mex
         {
             MostrarDatos_dgvClientes();
             OpcionCancelar();
+     
         }
 
         private void txtEstatura_Leave(object sender, EventArgs e)
@@ -138,6 +147,7 @@ namespace Satom_mex
             txtpeso.Text = "";
             lbl_Imc.Text = "";
             btnGuardar.Enabled = true;
+            btnCancelar.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -156,10 +166,11 @@ namespace Satom_mex
                 txtApellidos.Text = row.Cells["Apellidos"].Value.ToString();
                 txtDomicilio.Text = row.Cells["Direccion"].Value.ToString();
                 txtTelefono.Text = row.Cells["Telefono"].Value.ToString();
-                txtCorreo.Text = row.Cells["Correo"].Value.ToString();
-                dtpFecha.Text = row.Cells["FechaN"].Value.ToString();
                 lbl_Imc.Text = row.Cells["IMC"].Value.ToString();
+                txtCorreo.Text = row.Cells["Correo"].Value.ToString();
                 txt_est.Text = row.Cells["Estado"].Value.ToString();
+                dtpFecha.Text = row.Cells["FechaN"].Value.ToString();
+               
 
             }
             catch (Exception)
@@ -224,6 +235,30 @@ namespace Satom_mex
             {
                 MessageBox.Show("Datos no actualizados", "Error al Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta Seguro que desea eliminar los datos del cliente", "Eliminar datos del cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ClsClientes Instancia = new ClsClientes();
+                Instancia.IdCliente = Convert.ToInt32(txt_Id.Text);
+
+                if (ClsClientes.Eliminar(Instancia.IdCliente) > 0)
+                {
+                    MessageBox.Show("Datos eliminados con exito!!", "Datos eliminados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar datos del Cliente", "Cliente no eliminado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se cancelo la eliminacion de los datos", "Eliminacion Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            MostrarDatos_dgvClientes();
+            limpia_cajas();
         }
     }
 }

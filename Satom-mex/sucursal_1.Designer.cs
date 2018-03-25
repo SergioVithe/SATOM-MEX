@@ -51,7 +51,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(1039, 28);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(295, 22);
             this.textBox3.TabIndex = 4;
@@ -72,7 +72,7 @@
             this.dgvCatego.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCatego.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCatego.Location = new System.Drawing.Point(57, 447);
-            this.dgvCatego.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCatego.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCatego.Name = "dgvCatego";
             this.dgvCatego.Size = new System.Drawing.Size(1291, 229);
             this.dgvCatego.TabIndex = 10;
@@ -91,7 +91,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(183, 119);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(372, 22);
             this.txtNombre.TabIndex = 0;
@@ -99,7 +99,7 @@
             // txtDesc
             // 
             this.txtDesc.Location = new System.Drawing.Point(183, 167);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(4);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(372, 118);
@@ -117,11 +117,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(183, 48);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 41);
             this.panel1.TabIndex = 11;
@@ -150,6 +150,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNuevo
             // 
@@ -177,6 +178,7 @@
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
@@ -204,6 +206,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtId
             // 
@@ -219,6 +222,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevo);
@@ -233,9 +237,9 @@
             this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "sucursal_1";
-            this.Size = new System.Drawing.Size(1600, 848);
+            this.Size = new System.Drawing.Size(1596, 844);
             this.Load += new System.EventHandler(this.sucursal_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatego)).EndInit();
             this.panel1.ResumeLayout(false);

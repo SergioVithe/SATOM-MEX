@@ -9,7 +9,7 @@ namespace Satom_mex
 {
     public class Clsconf : System.Windows.Forms.ApplicationContext
     {
-
+       
         public Clsconf()
         {
 
@@ -18,7 +18,9 @@ namespace Satom_mex
             ClsDatos datos = new ClsDatos();
             ClsInicio inicio = new ClsInicio();
             ClsConexion conexion = new ClsConexion();
-            string sFileName = @"C:\datos\sysinit.ini";
+           
+            string sFileName = @"C:\datos\feedback.ini";
+
 
             if (File.Exists(sFileName))
             {

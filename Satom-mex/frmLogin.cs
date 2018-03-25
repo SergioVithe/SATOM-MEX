@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Satom_mex
 {
@@ -17,6 +18,9 @@ namespace Satom_mex
             InitializeComponent();
         }
 
+
+
+
         private void btnConectar_Click(object sender, EventArgs e)
         {
             if (txtUsuario.Text != "" && txtPassword.Text != "")
@@ -24,6 +28,7 @@ namespace Satom_mex
                 ClsAcceso acceso = new ClsAcceso();
                 acceso.pass = txtPassword.Text;
                 acceso.usuario = txtUsuario.Text;
+                
 
                 string mensaje = "";
                 switch (acceso.segurity())
@@ -57,5 +62,28 @@ namespace Satom_mex
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sFileName = @"C:\datos\feedback.ini";
+            MessageBox.Show("Solo para el Administrador.");
+
+            DialogResult result = MessageBox.Show("Desea ir a Configuración?", "Solo Administrador", MessageBoxButtons.YesNo);
+
+
+            if (result == DialogResult.Yes)
+            {
+                if (File.Exists(sFileName))
+                {
+                    File.Delete(sFileName);
+                }
+                frmConfiguracion conf = new frmConfiguracion();
+                conf.Show();
+                Hide();
+
+            }
+            
+        }
+
     }
 }

@@ -189,5 +189,20 @@ namespace Satom_mex
             PanelSeleccion();
             panel11.Visible = true;
         }
+
+        private void frmEstadistica1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmModopago1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmProveedor1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

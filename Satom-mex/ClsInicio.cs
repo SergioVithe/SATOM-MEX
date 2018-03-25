@@ -4,14 +4,21 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Satom_mex
 {
     class ClsInicio
     {
-        string sFileName = @"C:\datos\sysinit.ini";
+
+
+
+        string sFileName = "";
         public string datosBaseDatos()
         {
+            
+                sFileName = @"C:\datos\feedback.ini";
+            
 
             string cadenas = "";
 

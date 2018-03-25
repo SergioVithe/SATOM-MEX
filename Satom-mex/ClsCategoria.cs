@@ -59,6 +59,30 @@ namespace Satom_mex
             return lista;
         }
         //--------------------------------------------------------------------------
+        public static int Actualizar(ClsCategoria variable)
+        {
+            int bandera = 0;
+            MySqlConnection conexion = ClsConexion.ObtenerConexion();
+            MySqlCommand comando = new MySqlCommand(string.Format("Update tblcategoria set vchNombre='{0}', vchDescripcion='{1}' where intIdCategoria={2}",
+          variable.Nombre, variable.Descripcion, variable.IdCat), conexion);
+            bandera = comando.ExecuteNonQuery();
+            conexion.Close();
+            return bandera;
+        }
+        //Funcion eliminar
+        public static int Eliminar(int IdCliente)
+        {
+            int bandera = 0;
+            MySqlConnection conexion = ClsConexion.ObtenerConexion();
+            MySqlCommand comando = new MySqlCommand(string.Format("Delete From tblcategoria where intIdCategoria={0}", IdCliente), conexion);
+            bandera = comando.ExecuteNonQuery();
+            conexion.Close();
+            return bandera;
+        }
+        //--------------------------------------------------------------------------
+        //--------------------------------------------------------------------------
     }
+
+
         //------------------------------------------------------------------------
 }
