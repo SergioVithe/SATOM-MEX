@@ -70,6 +70,7 @@ namespace Satom_mex
             MySqlConnection conexion = ClsConexion.ObtenerConexion();
             MySqlCommand _comando = new MySqlCommand(String.Format("SELECT * from tblcliente"), conexion);
             MySqlDataReader _reader = _comando.ExecuteReader();
+            //conexion.Open();
             while (_reader.Read())
             {
                 ClsClientes Cliente = new ClsClientes();
@@ -87,6 +88,7 @@ namespace Satom_mex
 
                 lista.Add(Cliente);
             }
+            conexion.Close();
             return lista;
         }
         //Funcion eliminar

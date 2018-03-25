@@ -56,6 +56,7 @@ namespace Satom_mex
 
                 lista.Add(Catego);
             }
+            conexion.Close();
             return lista;
         }
         //--------------------------------------------------------------------------

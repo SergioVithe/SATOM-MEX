@@ -23,43 +23,53 @@ namespace Satom_mex
         private void txtConectar_Click(object sender, EventArgs e)
         {
 
-            ClsConexion conexion = new ClsConexion();
-            
-
-            string sFileName = @"C:\datos\feedback.ini";
-
-            conexion.bd = txtBaseDatos.Text;
-            conexion.pass = txtPassword.Text;
-            conexion.servidor = txtServidor.Text;
-            conexion.user = txtUsuario.Text;
-
-            string cadena = "Server=" + conexion.servidor + ";Database=" + conexion.bd + "; User Id=" + conexion.user + ";Password=" + conexion.pass;
-
-            conexion.cadenadesencriptada = cadena;
-
-
-
-
-            if (conexion.conexion())
+            if (txtBaseDatos.Text != string.Empty && txtServidor.Text != string.Empty && txtUsuario.Text != string.Empty)
             {
-               File.Delete(sFileName);
-                if (checkPredeterminado.Checked)
+                ClsConexion conexion = new ClsConexion();
+
+
+                string sFileName = @"C:\datos\feedback.ini";
+
+                conexion.bd = txtBaseDatos.Text;
+                conexion.pass = txtPassword.Text;
+                conexion.servidor = txtServidor.Text;
+                conexion.user = txtUsuario.Text;
+
+                string cadena = "Server=" + conexion.servidor + ";Database=" + conexion.bd + "; User Id=" + conexion.user + ";Password=" + conexion.pass;
+
+                conexion.cadenadesencriptada = cadena;
+
+
+
+
+                if (conexion.conexion())
                 {
-                    conexion.creararchivo();
+                    File.Delete(sFileName);
+                    if (checkPredeterminado.Checked)
+                    {
+                        conexion.creararchivo();
+                    }
+                    lblEstado.ForeColor = System.Drawing.Color.DarkGreen;
+                    lblEstado.Text = "Conexión estable";
+
+
+                    frmLogin login = new frmLogin();
+                    login.Show();
+                    Hide();
                 }
-                lblEstado.ForeColor = System.Drawing.Color.DarkGreen;
-                lblEstado.Text = "Conexión estable";
-
-
-                frmLogin login = new frmLogin();
-                login.Show();
-                Hide();
+                else if (conexion.conexion() == false)
+                {
+                    lblEstado.ForeColor = System.Drawing.Color.DarkRed;
+                    lblEstado.Text = "Conexión no establecida";
+                }
             }
-            else if (conexion.conexion() == false)
+            else
             {
                 lblEstado.ForeColor = System.Drawing.Color.DarkRed;
-                lblEstado.Text = "Conexión no establecida";
+                lblEstado.Text = "Rellene los campos correspondientes!!";
+                txtServidor.Focus();
             }
+
 
         }
 
@@ -137,62 +147,72 @@ namespace Satom_mex
 
         private void btnGenerarFile_Click(object sender, EventArgs e)
         {
-            string Name = txtFileName.Text.Trim();
-            string sFileName = @"C:\datos\" + Name + ".ini";
-            if (Name == String.Empty)
+
+            if (txtBaseDatos.Text != string.Empty && txtServidor.Text != string.Empty && txtUsuario.Text != string.Empty)
             {
-                lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkRed;
-                lblMostrarEstadoArchivo.Text = "Establezca un nombre *.ini";
-            }
-            else
-            {
-
-
-
-                if (File.Exists(sFileName) || sFileName == Name + ".ini")
+                string Name = txtFileName.Text.Trim();
+                string sFileName = @"C:\datos\" + Name + ".ini";
+                if (Name == String.Empty)
                 {
-                    MessageBox.Show("Archivo Existente");
+                    lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkRed;
+                    lblMostrarEstadoArchivo.Text = "Establezca un nombre *.ini";
                 }
                 else
                 {
-                    ClsConexion conexion = new ClsConexion();
-                    conexion.bd = txtBaseDatos.Text;
-                    conexion.pass = txtPassword.Text;
-                    conexion.servidor = txtServidor.Text;
-                    conexion.user = txtUsuario.Text;
-                    string cadena = "Server=" + conexion.servidor + ";Database=" + conexion.bd + "; User Id=" + conexion.user + ";Password=" + conexion.pass;
 
-                    conexion.cadenadesencriptada = cadena;
 
-                    if (conexion.conexion())
+
+                    if (File.Exists(sFileName) || sFileName == Name + ".ini")
                     {
-                        //File.Delete(sFileName);
-
-
-                        conexion.crearArchivoConNombre(Name );
-                        lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkGreen;
-                        //lblEstado.ForeColor = System.Drawing.Color.DarkGreen;
-                        lblMostrarEstadoArchivo.Text = "Archivo Creado Correctamente!!";
-                        LimpiarCajas();
-                        //lblEstado.Text = "Conexión estable";
-
-
-
-                        //frmLogin login = new frmLogin();
-                        //login.Show();
-                        //Hide();
+                        MessageBox.Show("Archivo Existente");
                     }
-                    else if (conexion.conexion() == false)
+                    else
                     {
-                        lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkRed;
-                        lblMostrarEstadoArchivo.Text = "Conexión No Establecida - Archivo No Creado";
-                        txtBaseDatos.Focus();
-                        //lblEstado.ForeColor = System.Drawing.Color.DarkGreen;
-                        //lblEstado.ForeColor = System.Drawing.Color.DarkRed;
-                        //lblEstado.Text = "Conexión no establecida";
+                        ClsConexion conexion = new ClsConexion();
+                        conexion.bd = txtBaseDatos.Text;
+                        conexion.pass = txtPassword.Text;
+                        conexion.servidor = txtServidor.Text;
+                        conexion.user = txtUsuario.Text;
+                        string cadena = "Server=" + conexion.servidor + ";Database=" + conexion.bd + "; User Id=" + conexion.user + ";Password=" + conexion.pass;
+
+                        conexion.cadenadesencriptada = cadena;
+
+                        if (conexion.conexion())
+                        {
+                            //File.Delete(sFileName);
+
+
+                            conexion.crearArchivoConNombre(Name);
+                            lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkGreen;
+                            //lblEstado.ForeColor = System.Drawing.Color.DarkGreen;
+                            lblMostrarEstadoArchivo.Text = "Archivo Creado Correctamente!!";
+                            LimpiarCajas();
+                            //lblEstado.Text = "Conexión estable";
+
+
+
+                            //frmLogin login = new frmLogin();
+                            //login.Show();
+                            //Hide();
+                        }
+                        else if (conexion.conexion() == false)
+                        {
+                            lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkRed;
+                            lblMostrarEstadoArchivo.Text = "Conexión No Establecida - Archivo No Creado";
+                            txtBaseDatos.Focus();
+                            //lblEstado.ForeColor = System.Drawing.Color.DarkGreen;
+                            //lblEstado.ForeColor = System.Drawing.Color.DarkRed;
+                            //lblEstado.Text = "Conexión no establecida";
+                        }
                     }
                 }
             }
+            else
+            {
+                lblMostrarEstadoArchivo.ForeColor = System.Drawing.Color.DarkRed;
+                lblMostrarEstadoArchivo.Text = "Rellene los campos";
+            }
+
         }
 
 
@@ -249,5 +269,10 @@ namespace Satom_mex
                 }
             }
         }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        } 
     }
 }

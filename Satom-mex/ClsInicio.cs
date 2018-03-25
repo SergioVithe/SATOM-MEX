@@ -17,6 +17,7 @@ namespace Satom_mex
         public string datosBaseDatos()
         {
             
+            
                 sFileName = @"C:\datos\feedback.ini";
             
 
@@ -37,8 +38,33 @@ namespace Satom_mex
             return cadenas;
         }
 
+
+        public string datosBaseDatosLeer(string ruta)
+        {
+            string sFileNames = "";
+            sFileNames = @ruta;
+
+
+            string cadenas = "";
+
+            if (File.Exists(sFileNames))
+            {
+                ClsConexion conexion = new ClsConexion();
+                ClsDatos datos = new ClsDatos();
+                FileStream fs = new FileStream(sFileNames, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                StreamReader sr = new StreamReader(fs);
+                string sContent = sr.ReadToEnd();
+                conexion.cadenadesencriptada = datos.Desencriptar(sContent);
+                cadenas = conexion.cadenadesencriptada;
+                fs.Close();
+                sr.Close();
+            }
+            return cadenas;
+        }
+
         public void abrir()
         {
+            
             if (File.Exists(sFileName))
             {
                 frmLogin Logueo = new frmLogin();

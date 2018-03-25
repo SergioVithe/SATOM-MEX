@@ -136,6 +136,9 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.cmbSucursales = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -178,7 +181,7 @@
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.listBox2);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Location = new System.Drawing.Point(753, 476);
+            this.groupBox5.Location = new System.Drawing.Point(753, 488);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(281, 354);
             this.groupBox5.TabIndex = 44;
@@ -231,9 +234,9 @@
             // 
             // btnGraficar
             // 
-            this.btnGraficar.Location = new System.Drawing.Point(485, 16);
+            this.btnGraficar.Location = new System.Drawing.Point(728, 41);
             this.btnGraficar.Name = "btnGraficar";
-            this.btnGraficar.Size = new System.Drawing.Size(100, 49);
+            this.btnGraficar.Size = new System.Drawing.Size(106, 49);
             this.btnGraficar.TabIndex = 42;
             this.btnGraficar.Text = "Gráficar";
             this.btnGraficar.UseVisualStyleBackColor = true;
@@ -241,9 +244,9 @@
             // 
             // btnExtraer
             // 
-            this.btnExtraer.Location = new System.Drawing.Point(244, 16);
+            this.btnExtraer.Location = new System.Drawing.Point(363, 37);
             this.btnExtraer.Name = "btnExtraer";
-            this.btnExtraer.Size = new System.Drawing.Size(109, 39);
+            this.btnExtraer.Size = new System.Drawing.Size(109, 48);
             this.btnExtraer.TabIndex = 41;
             this.btnExtraer.Text = "Obtener Registros";
             this.btnExtraer.UseVisualStyleBackColor = true;
@@ -269,7 +272,7 @@
             this.groupBox4.Controls.Add(this.lblRa);
             this.groupBox4.Controls.Add(this.lblClases);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Location = new System.Drawing.Point(440, 62);
+            this.groupBox4.Location = new System.Drawing.Point(440, 95);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(394, 134);
             this.groupBox4.TabIndex = 38;
@@ -431,7 +434,7 @@
             // dteFinal
             // 
             this.dteFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dteFinal.Location = new System.Drawing.Point(136, 23);
+            this.dteFinal.Location = new System.Drawing.Point(136, 53);
             this.dteFinal.Name = "dteFinal";
             this.dteFinal.Size = new System.Drawing.Size(94, 20);
             this.dteFinal.TabIndex = 40;
@@ -439,7 +442,7 @@
             // dteInicial
             // 
             this.dteInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dteInicial.Location = new System.Drawing.Point(27, 23);
+            this.dteInicial.Location = new System.Drawing.Point(27, 53);
             this.dteInicial.Name = "dteInicial";
             this.dteInicial.Size = new System.Drawing.Size(94, 20);
             this.dteInicial.TabIndex = 39;
@@ -457,7 +460,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(17, 65);
+            this.groupBox1.Location = new System.Drawing.Point(17, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(412, 134);
             this.groupBox1.TabIndex = 35;
@@ -637,7 +640,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 37);
+            this.chart1.Location = new System.Drawing.Point(-11, 37);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "PointWidth=1";
@@ -1015,7 +1018,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 231);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 239);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -1093,6 +1096,37 @@
             this.label22.TabIndex = 46;
             this.label22.Text = "__________";
             // 
+            // cmbSucursales
+            // 
+            this.cmbSucursales.FormattingEnabled = true;
+            this.cmbSucursales.Items.AddRange(new object[] {
+            "Sucursal 1",
+            "Sucursal 2",
+            "Sucursal 3"});
+            this.cmbSucursales.Location = new System.Drawing.Point(236, 52);
+            this.cmbSucursales.Name = "cmbSucursales";
+            this.cmbSucursales.Size = new System.Drawing.Size(121, 21);
+            this.cmbSucursales.TabIndex = 49;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(27, 15);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(97, 24);
+            this.label31.TabIndex = 50;
+            this.label31.Text = "Sucursal:";
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(121, 15);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(0, 24);
+            this.lblEstado.TabIndex = 51;
+            // 
             // frmEstadistica
             // 
             this.AllowDrop = true;
@@ -1101,6 +1135,9 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.cmbSucursales);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.groupBox6);
@@ -1117,7 +1154,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmEstadistica";
-            this.Size = new System.Drawing.Size(998, 696);
+            this.Size = new System.Drawing.Size(981, 679);
             this.Load += new System.EventHandler(this.frmEstadistica_Load_1);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1241,5 +1278,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cmbSucursales;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lblEstado;
     }
 }

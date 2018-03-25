@@ -71,5 +71,3 @@ C:\Users\sergi\Documents\Visual Studio 2012\Satom-mex\Satom-mex\obj\Debug\Satom_
 C:\Users\sergi\Documents\Visual Studio 2012\Satom-mex\Satom-mex\obj\Debug\Satom-mex.csproj.GenerateResource.Cache
 C:\Users\sergi\Documents\Visual Studio 2012\Satom-mex\Satom-mex\obj\Debug\Satom-mex.exe
 C:\Users\sergi\Documents\Visual Studio 2012\Satom-mex\Satom-mex\obj\Debug\Satom-mex.pdb
-C:\Users\sergi\Documents\Visual Studio 2012\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe.CodeAnalysisLog.xml
-C:\Users\sergi\Documents\Visual Studio 2012\Satom-mex\Satom-mex\bin\Debug\Satom-mex.exe.lastcodeanalysissucceeded

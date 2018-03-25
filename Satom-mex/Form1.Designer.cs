@@ -30,12 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.frmEstadistica1 = new Satom_mex.frmEstadistica();
+            this.frmProveedor1 = new Satom_mex.frmProveedor();
+            this.frmModopago1 = new Satom_mex.frmModopago();
+            this.frmJefedpto1 = new Satom_mex.frmJefedpto();
+            this.frmEmpleado1 = new Satom_mex.frmEmpleado();
+            this.frmClientes1 = new Satom_mex.frmClientes();
+            this.sucursal_11 = new Satom_mex.sucursal_1();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -48,24 +56,16 @@
             this.btnMenuClientes = new System.Windows.Forms.Button();
             this.btnMenuSucursal = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.frmEstadistica1 = new Satom_mex.frmEstadistica();
-            this.frmProveedor1 = new Satom_mex.frmProveedor();
-            this.frmModopago1 = new Satom_mex.frmModopago();
-            this.frmJefedpto1 = new Satom_mex.frmJefedpto();
-            this.frmEmpleado1 = new Satom_mex.frmEmpleado();
-            this.frmClientes1 = new Satom_mex.frmClientes();
-            this.sucursal_11 = new Satom_mex.sucursal_1();
             this.pag_11 = new Satom_mex.frmClientes();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,81 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1125, 600);
             this.panel1.TabIndex = 1;
+            // 
+            // frmEstadistica1
+            // 
+            this.frmEstadistica1.AllowDrop = true;
+            this.frmEstadistica1.AutoScroll = true;
+            this.frmEstadistica1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.frmEstadistica1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frmEstadistica1.Location = new System.Drawing.Point(0, 0);
+            this.frmEstadistica1.Margin = new System.Windows.Forms.Padding(4);
+            this.frmEstadistica1.Name = "frmEstadistica1";
+            this.frmEstadistica1.Size = new System.Drawing.Size(1201, 690);
+            this.frmEstadistica1.TabIndex = 7;
+            this.frmEstadistica1.Load += new System.EventHandler(this.frmEstadistica1_Load);
+            // 
+            // frmProveedor1
+            // 
+            this.frmProveedor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.frmProveedor1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frmProveedor1.Location = new System.Drawing.Point(0, 0);
+            this.frmProveedor1.Margin = new System.Windows.Forms.Padding(4);
+            this.frmProveedor1.Name = "frmProveedor1";
+            this.frmProveedor1.Size = new System.Drawing.Size(1201, 690);
+            this.frmProveedor1.TabIndex = 6;
+            this.frmProveedor1.Load += new System.EventHandler(this.frmProveedor1_Load);
+            // 
+            // frmModopago1
+            // 
+            this.frmModopago1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.frmModopago1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frmModopago1.Location = new System.Drawing.Point(0, 0);
+            this.frmModopago1.Margin = new System.Windows.Forms.Padding(4);
+            this.frmModopago1.Name = "frmModopago1";
+            this.frmModopago1.Size = new System.Drawing.Size(1201, 690);
+            this.frmModopago1.TabIndex = 5;
+            this.frmModopago1.Load += new System.EventHandler(this.frmModopago1_Load);
+            // 
+            // frmJefedpto1
+            // 
+            this.frmJefedpto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.frmJefedpto1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frmJefedpto1.Location = new System.Drawing.Point(0, 0);
+            this.frmJefedpto1.Margin = new System.Windows.Forms.Padding(4);
+            this.frmJefedpto1.Name = "frmJefedpto1";
+            this.frmJefedpto1.Size = new System.Drawing.Size(1201, 690);
+            this.frmJefedpto1.TabIndex = 4;
+            // 
+            // frmEmpleado1
+            // 
+            this.frmEmpleado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.frmEmpleado1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frmEmpleado1.Location = new System.Drawing.Point(0, 0);
+            this.frmEmpleado1.Margin = new System.Windows.Forms.Padding(4);
+            this.frmEmpleado1.Name = "frmEmpleado1";
+            this.frmEmpleado1.Size = new System.Drawing.Size(1201, 690);
+            this.frmEmpleado1.TabIndex = 3;
+            // 
+            // frmClientes1
+            // 
+            this.frmClientes1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.frmClientes1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frmClientes1.Location = new System.Drawing.Point(0, 0);
+            this.frmClientes1.Margin = new System.Windows.Forms.Padding(4);
+            this.frmClientes1.Name = "frmClientes1";
+            this.frmClientes1.Size = new System.Drawing.Size(1141, 635);
+            this.frmClientes1.TabIndex = 2;
+            // 
+            // sucursal_11
+            // 
+            this.sucursal_11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
+            this.sucursal_11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.sucursal_11.Location = new System.Drawing.Point(0, 0);
+            this.sucursal_11.Margin = new System.Windows.Forms.Padding(4);
+            this.sucursal_11.Name = "sucursal_11";
+            this.sucursal_11.Size = new System.Drawing.Size(1201, 690);
+            this.sucursal_11.TabIndex = 1;
             // 
             // panel2
             // 
@@ -109,17 +184,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(209, 772);
             this.panel2.TabIndex = 3;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(935, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(138, 120);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
             // 
             // panel11
             // 
@@ -168,6 +232,27 @@
             this.button3.Text = "Proveedor";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(47, 133);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 20);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Administrador";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(61, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(98, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // panel9
             // 
@@ -314,26 +399,16 @@
             this.btnMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal2_Click);
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Administrador";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(61, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(98, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(935, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(138, 120);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
             // 
             // panel3
             // 
@@ -387,81 +462,6 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // frmEstadistica1
-            // 
-            this.frmEstadistica1.AllowDrop = true;
-            this.frmEstadistica1.AutoScroll = true;
-            this.frmEstadistica1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.frmEstadistica1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.frmEstadistica1.Location = new System.Drawing.Point(0, 0);
-            this.frmEstadistica1.Margin = new System.Windows.Forms.Padding(4);
-            this.frmEstadistica1.Name = "frmEstadistica1";
-            this.frmEstadistica1.Size = new System.Drawing.Size(1201, 690);
-            this.frmEstadistica1.TabIndex = 7;
-            this.frmEstadistica1.Load += new System.EventHandler(this.frmEstadistica1_Load);
-            // 
-            // frmProveedor1
-            // 
-            this.frmProveedor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.frmProveedor1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.frmProveedor1.Location = new System.Drawing.Point(0, 0);
-            this.frmProveedor1.Margin = new System.Windows.Forms.Padding(4);
-            this.frmProveedor1.Name = "frmProveedor1";
-            this.frmProveedor1.Size = new System.Drawing.Size(1201, 690);
-            this.frmProveedor1.TabIndex = 6;
-            this.frmProveedor1.Load += new System.EventHandler(this.frmProveedor1_Load);
-            // 
-            // frmModopago1
-            // 
-            this.frmModopago1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.frmModopago1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.frmModopago1.Location = new System.Drawing.Point(0, 0);
-            this.frmModopago1.Margin = new System.Windows.Forms.Padding(4);
-            this.frmModopago1.Name = "frmModopago1";
-            this.frmModopago1.Size = new System.Drawing.Size(1201, 690);
-            this.frmModopago1.TabIndex = 5;
-            this.frmModopago1.Load += new System.EventHandler(this.frmModopago1_Load);
-            // 
-            // frmJefedpto1
-            // 
-            this.frmJefedpto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.frmJefedpto1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.frmJefedpto1.Location = new System.Drawing.Point(0, 0);
-            this.frmJefedpto1.Margin = new System.Windows.Forms.Padding(4);
-            this.frmJefedpto1.Name = "frmJefedpto1";
-            this.frmJefedpto1.Size = new System.Drawing.Size(1201, 690);
-            this.frmJefedpto1.TabIndex = 4;
-            // 
-            // frmEmpleado1
-            // 
-            this.frmEmpleado1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.frmEmpleado1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.frmEmpleado1.Location = new System.Drawing.Point(0, 0);
-            this.frmEmpleado1.Margin = new System.Windows.Forms.Padding(4);
-            this.frmEmpleado1.Name = "frmEmpleado1";
-            this.frmEmpleado1.Size = new System.Drawing.Size(1201, 690);
-            this.frmEmpleado1.TabIndex = 3;
-            // 
-            // frmClientes1
-            // 
-            this.frmClientes1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.frmClientes1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.frmClientes1.Location = new System.Drawing.Point(0, 0);
-            this.frmClientes1.Margin = new System.Windows.Forms.Padding(4);
-            this.frmClientes1.Name = "frmClientes1";
-            this.frmClientes1.Size = new System.Drawing.Size(1141, 635);
-            this.frmClientes1.TabIndex = 2;
-            // 
-            // sucursal_11
-            // 
-            this.sucursal_11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(221)))), ((int)(((byte)(204)))));
-            this.sucursal_11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.sucursal_11.Location = new System.Drawing.Point(0, 0);
-            this.sucursal_11.Margin = new System.Windows.Forms.Padding(4);
-            this.sucursal_11.Name = "sucursal_11";
-            this.sucursal_11.Size = new System.Drawing.Size(1201, 690);
-            this.sucursal_11.TabIndex = 1;
-            // 
             // pag_11
             // 
             this.pag_11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -490,8 +490,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);

@@ -11,6 +11,7 @@ namespace Satom_mex
     class ClsConexion
     {
         public MySqlConnection conectar;
+        public MySqlConnection conectar1;
         public string servidor;
         public string bd;
         public string user;
@@ -72,7 +73,28 @@ namespace Satom_mex
             cadenas = inicio.datosBaseDatos().Split('=', ';');
             MySqlConnection conectar = new MySqlConnection("Server=" + cadenas[1] + ";Database=" + cadenas[3] + "; User Id=" + cadenas[5] + ";Password=" + cadenas[7]);
             conectar.Open();
+           
             return conectar;
+        }
+        public Boolean ObtenerConexion2(string sFileName)
+        {
+            string[] cadenas = { };
+            ClsInicio acceso = new ClsInicio();
+            cadenas = acceso.datosBaseDatosLeer(sFileName).Split('=', ';');
+            conectar1 = new MySqlConnection("Server=" + cadenas[1] + ";Database=" + cadenas[3] + "; User Id=" + cadenas[5] + ";Password=" + cadenas[7]);
+            try
+            {
+              
+                //System.Windows.Forms.MessageBox.Show("Conexion Establecida !!!");
+                conectar1.Open();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                //System.Windows.Forms.MessageBox.Show("No se pudo conectar!!!");
+            }
         }
 
         public void creararchivo()

@@ -26,16 +26,148 @@ namespace Satom_mex
         double DatoMenor = 0;
         public MySqlConnection conectar;//= new MySqlConnection("Server=localhost;Database=bdservice; User Id=root;Password=");
         int totalRegistros = 0;
+        ClsConexion conectarse = new ClsConexion();
+         
         // double[] datEstaticos = new double[] { 49, 68, 70, 98, 100, 95, 70, 96, 85, 100, 83, 89, 60, 66, 55, 55, 65, 77, 80, 92, 93, 70, 87, 74, 66, 95, 65, 87, 45, 77, 67, 93, 60, 75, 69, 52, 82, 78, 92, 56, 98, 58, 56, 70, 70, 74, 75, 64, 77, 50 };
         double[] DatosClientes = { };
 
         public frmEstadistica()
         {
             InitializeComponent();
-            string[] cadenas = { };
-            ClsInicio acceso = new ClsInicio();
-            cadenas = acceso.datosBaseDatos().Split('=', ';');
-            conectar = new MySqlConnection("Server=" + cadenas[1] + ";Database=" + cadenas[3] + "; User Id=" + cadenas[5] + ";Password=" + cadenas[7]);
+            //string[] cadenas = { };
+            //ClsInicio acceso = new ClsInicio();
+            //cadenas = acceso.datosBaseDatos().Split('=', ';');
+            //conectar = new MySqlConnection("Server=" + cadenas[1] + ";Database=" + cadenas[3] + "; User Id=" + cadenas[5] + ";Password=" + cadenas[7]);
+          
+
+        }
+        public void lol()
+        { 
+        
+            string sFileName = "";
+
+            if (cmbSucursales.SelectedItem.ToString() == "Sucursal 1")
+            {
+                sFileName = @"C:\datos\feedback.ini";
+            }
+            else if (cmbSucursales.SelectedItem.ToString() == "Sucursal 2")
+            {
+                sFileName = @"C:\datos\Selena_Suc1.ini";
+            }
+
+            ClsDatos datos = new ClsDatos();
+            if (File.Exists(sFileName))
+            {
+                StreamReader ar = new StreamReader(sFileName);
+                string linea = ar.ReadLine();
+                ar.Close();
+                string[] cadenas = { };
+                ClsInicio inicio = new ClsInicio();
+                cadenas = inicio.datosBaseDatos().Split('=', ';');
+                ClsConexion conexion = new ClsConexion();
+                conexion.bd = cadenas[3];
+                conexion.pass = cadenas[7];
+                conexion.servidor = cadenas[1];
+                conexion.user = cadenas[5];
+                string cadena = "Server=" + conexion.servidor + ";Database=" + conexion.bd + "; User Id=" + conexion.user + ";Password=" + conexion.pass;
+                conexion.cadenadesencriptada = cadena;
+                // conexion.cadenadesencriptada = datos.Desencriptar(cadena);
+                if (conexion.conexion())
+                {
+                    if (cmbSucursales.SelectedItem.ToString() == "Sucursal 1")
+                    {
+                        lblEstado.Text = "Huejutla zona centro";
+                    }
+                    else if (cmbSucursales.SelectedItem.ToString() == "Sucursal 2")
+                    {
+                        lblEstado.Text = "San Felipe";
+                    }
+
+                    dtefechaInicial = dteInicial.Value.Date.ToString("yyyy-MM-dd");
+                    dtefechaFinal = dteFinal.Value.Date.ToString("yyyy-MM-dd");
+                    // totaldatos(dtefechaInicial, dtefechaFinal);
+                    //GuardardatosArrayBD(dtefechaInicial, dtefechaFinal);
+                    txtDatosTotales.Enabled = false;
+                    poblacion = totaldatos(dtefechaInicial, dtefechaFinal);
+                    txtDatosTotales.Text = poblacion.ToString();
+                    btnCalcularMuestra.Enabled = true;
+                    //poblacion=Convert.ToInt32( txtDatosTotales.Text);
+                    //orden();
+                    //noorden();
+                    ////xaorden();
+                    ////Ordenar();
+                    //RegladeSturgess();
+                    //VerRango();
+                    //AnchuradeClase();
+                    //CreaTabla();
+                    //CreaTabla2();
+                    //Prob();
+                    //txtDatosMuestra.Text=calculamuestra(cmbE).ToString();
+                    cmbE.Focus();
+                }
+                else if (conexion.conexion() == false)
+                {
+                    lblEstado.ForeColor = System.Drawing.Color.DarkRed;
+                    lblEstado.Text = "Conexión no establecida";
+                }
+            }
+        }
+
+        private void btnExtraer_Click_1(object sender, EventArgs e)
+        {
+            string sFileName = "";
+
+            if (cmbSucursales.SelectedItem.ToString() == "Sucursal 1")
+            {
+                sFileName = @"C:\datos\feedback.ini";
+            }
+            else if (cmbSucursales.SelectedItem.ToString() == "Sucursal 2")
+            {
+                sFileName = @"C:\datos\Selena_Suc1.ini";
+            }
+
+            
+            if (conectarse.ObtenerConexion2(sFileName))
+            {
+
+
+                if (cmbSucursales.SelectedItem.ToString() == "Sucursal 1")
+                {
+                    lblEstado.Text = "Huejutla zona centro";
+                }
+                else if (cmbSucursales.SelectedItem.ToString() == "Sucursal 2")
+                {
+                    lblEstado.Text = "San Felipe";
+                }
+
+                dtefechaInicial = dteInicial.Value.Date.ToString("yyyy-MM-dd");
+                dtefechaFinal = dteFinal.Value.Date.ToString("yyyy-MM-dd");
+                // totaldatos(dtefechaInicial, dtefechaFinal);
+                //GuardardatosArrayBD(dtefechaInicial, dtefechaFinal);
+                txtDatosTotales.Enabled = false;
+                poblacion = totaldatos(dtefechaInicial, dtefechaFinal);
+                txtDatosTotales.Text = poblacion.ToString();
+                btnCalcularMuestra.Enabled = true;
+                //poblacion=Convert.ToInt32( txtDatosTotales.Text);
+                //orden();
+                //noorden();
+                ////xaorden();
+                ////Ordenar();
+                //RegladeSturgess();
+                //VerRango();
+                //AnchuradeClase();
+                //CreaTabla();
+                //CreaTabla2();
+                //Prob();
+                //txtDatosMuestra.Text=calculamuestra(cmbE).ToString();
+                cmbE.Focus();
+            }
+            else if (conectarse.ObtenerConexion2(sFileName) == false)
+            {
+                lblEstado.ForeColor = System.Drawing.Color.DarkRed;
+                lblEstado.Text = "Conexión no establecida";
+            }
+            
 
 
         }
@@ -45,6 +177,7 @@ namespace Satom_mex
             //double[] num = new double[datEstaticos.Length];
 
             //num = ordenarArray(datEstaticos);
+            listBox1.Items.Clear();
             for (int i = 0; i < DatosClientes.Length; i++)
             {
                 listBox1.Items.Add(DatosClientes[i]);
@@ -53,6 +186,7 @@ namespace Satom_mex
 
         public void ordenaList()
         {
+            listBox2.Items.Clear();
             double[] num = new double[DatosClientes.Length];
 
             num = ordenarArray(DatosClientes);
@@ -183,7 +317,7 @@ namespace Satom_mex
         double media = 0;
         public void Media()
         {
-
+            media = 0;
             for (int x = 0; x < NumeroDeClase; x++)
             {
                 media = media + Convert.ToDouble(dataGridView1.Rows[x].Cells[5].Value.ToString());
@@ -198,6 +332,7 @@ namespace Satom_mex
         double varianza = 0;
         public void Varianza()
         {
+            varianza = 0;
             for (int x = 0; x < NumeroDeClase; x++)
             {
                 varianza = varianza + Convert.ToDouble(dataGridView1.Rows[x].Cells[6].Value.ToString());
@@ -228,6 +363,7 @@ namespace Satom_mex
         float mas1;
         public void Mediana()
         {
+            medianaa = 0;
             mas1 = (DatosClientes.Length + 1);
             sum4 = mas1 / 2;
 
@@ -816,16 +952,16 @@ namespace Satom_mex
         public int totaldatos(string fechainicial, string fechafinal)
         {
             int r = 0;
-            using (conectar)
+            using (conectarse.conectar1)
             {
                 string query = "SELECT COUNT(dbleIMC) FROM tblcliente WHERE vchFechRegistro BETWEEN '" + fechainicial + " 00:00:00' AND '" + fechafinal + " 23:59:59';";
-                conectar.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conectar);
+                
+                MySqlCommand cmd = new MySqlCommand(query, conectarse.conectar1);
                 r = Convert.ToInt32(cmd.ExecuteScalar());
 
 
             }
-            conectar.Close();
+            conectarse.conectar1.Close();
             totalRegistros = r;
             return r;
 
@@ -835,11 +971,11 @@ namespace Satom_mex
         {
             //double[] num = new double[poblacion];//Cambiar la población, asignarle lo que da la muestra
             List<double> resultado = new List<double>();
-            using (conectar)
+            using (conectarse.conectar1)
             {
                 string query = "SELECT dbleIMC FROM tblcliente WHERE vchFechRegistro BETWEEN '" + inicial + " 00:00:00' AND '" + final + " 23:59:59' limit " + limite + ";";
-                conectar.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conectar);
+                conectarse.conectar1.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conectarse.conectar1);
                 MySqlDataReader d = cmd.ExecuteReader();
 
 
@@ -851,7 +987,7 @@ namespace Satom_mex
 
             }
             DatosClientes = resultado.ToArray();
-            conectar.Close();
+            conectarse.conectar1.Close();
             for (int i = 0; i < DatosClientes.Length; i++)
             {
                 //MessageBox.Show("los datos fueron"+Array[i]);
@@ -884,31 +1020,7 @@ namespace Satom_mex
             btnCalcularMuestra.Focus();
         }
 
-        private void btnExtraer_Click_1(object sender, EventArgs e)
-        {
-            dtefechaInicial = dteInicial.Value.Date.ToString("yyyy-MM-dd");
-            dtefechaFinal = dteFinal.Value.Date.ToString("yyyy-MM-dd");
-            // totaldatos(dtefechaInicial, dtefechaFinal);
-            //GuardardatosArrayBD(dtefechaInicial, dtefechaFinal);
-            txtDatosTotales.Enabled = false;
-            poblacion = totaldatos(dtefechaInicial, dtefechaFinal);
-            txtDatosTotales.Text = poblacion.ToString();
-            btnCalcularMuestra.Enabled = true;
-            //poblacion=Convert.ToInt32( txtDatosTotales.Text);
-            //orden();
-            //noorden();
-            ////xaorden();
-            ////Ordenar();
-            //RegladeSturgess();
-            //VerRango();
-            //AnchuradeClase();
-            //CreaTabla();
-            //CreaTabla2();
-            //Prob();
-            //txtDatosMuestra.Text=calculamuestra(cmbE).ToString();
-            cmbE.Focus();
-        }
-
+        
         private void btnGraficar_Click_1(object sender, EventArgs e)
         {
 

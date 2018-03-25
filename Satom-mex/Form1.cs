@@ -25,8 +25,8 @@ namespace Satom_mex
             pag_11.BringToFront();
             pag_11.Enabled = true;
             pag_11.Visible = true;
-                
-           
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace Satom_mex
             sucursal_11.Visible = false;
             label2.Text = "Bienvenido";
             PanelSeleccion();
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,8 +45,8 @@ namespace Satom_mex
             sucursal_11.Enabled = true;
             sucursal_11.Visible = true;
             sucursal_11.BringToFront();
-            
-           
+
+
         }
 
         public void mostrar()
@@ -78,7 +78,7 @@ namespace Satom_mex
         {
             label2.Text = "Bienvenido";
             mostrar();
-            
+
             PanelSeleccion();
             panel4.Visible = true;
         }
@@ -97,7 +97,7 @@ namespace Satom_mex
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-        
+
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -108,6 +108,12 @@ namespace Satom_mex
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+            //Hide();
+            //notifyIcon1.Visible = true;
+            //notifyIcon1.BalloonTipText = "Se ha miniminizado el programa,\nClic aquí para maximizar.";
+            //notifyIcon1.BalloonTipTitle = "Minimizado";
+            //notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            //notifyIcon1.ShowBalloonTip(2000);
         }
 
         private void btnMenuClientes_Click(object sender, EventArgs e)
@@ -118,7 +124,7 @@ namespace Satom_mex
             frmClientes1.BringToFront();
             frmClientes1.Enabled = true;
             frmClientes1.Visible = true;
-              
+
 
         }
 
@@ -128,13 +134,13 @@ namespace Satom_mex
             frmEmpleado1.BringToFront();
             frmEmpleado1.Enabled = true;
             frmEmpleado1.Visible = true;
-              
+
             PanelSeleccion();
             panel7.Visible = true;
         }
         public void PanelSeleccion()
         {
-            
+
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
@@ -143,7 +149,7 @@ namespace Satom_mex
             panel9.Visible = false;
             panel10.Visible = false;
             panel11.Visible = false;
-           
+
         }
 
         private void button1_Click_2(object sender, EventArgs e)

@@ -90,16 +90,17 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(141, 242);
+            this.txtPassword.Location = new System.Drawing.Point(125, 242);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(148, 20);
             this.txtPassword.TabIndex = 59;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(141, 197);
+            this.txtUsuario.Location = new System.Drawing.Point(125, 197);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '*';
@@ -122,9 +123,9 @@
             this.label4.Location = new System.Drawing.Point(43, 199);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 56;
-            this.label4.Text = "Usuario";
+            this.label4.Text = "Usuario *";
             // 
             // label3
             // 
@@ -148,7 +149,7 @@
             // 
             // txtBaseDatos
             // 
-            this.txtBaseDatos.Location = new System.Drawing.Point(141, 154);
+            this.txtBaseDatos.Location = new System.Drawing.Point(125, 152);
             this.txtBaseDatos.Margin = new System.Windows.Forms.Padding(4);
             this.txtBaseDatos.Name = "txtBaseDatos";
             this.txtBaseDatos.Size = new System.Drawing.Size(148, 20);
@@ -156,7 +157,7 @@
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(141, 107);
+            this.txtServidor.Location = new System.Drawing.Point(125, 107);
             this.txtServidor.Margin = new System.Windows.Forms.Padding(4);
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(148, 20);
@@ -168,9 +169,9 @@
             this.label2.Location = new System.Drawing.Point(44, 156);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Base de datos";
+            this.label2.Text = "Base de datos *";
             // 
             // label1
             // 
@@ -178,9 +179,9 @@
             this.label1.Location = new System.Drawing.Point(44, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Servidor";
+            this.label1.Text = "Servidor *";
             // 
             // btnVerificar
             // 

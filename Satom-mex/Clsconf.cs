@@ -52,14 +52,14 @@ namespace Satom_mex
 
                     frmLogin log = new frmLogin();
                     log.Show();
-                   
 
+                    conexion.conectar.Close();
                 }
                 else if (conexion.conexion() == false)
                 {
                     frmConfiguracion s = new frmConfiguracion();
                     s.Show();
-
+                    conexion.conectar.Close();
                 }
 
             }
@@ -67,10 +67,12 @@ namespace Satom_mex
             {
                 frmConfiguracion confi = new frmConfiguracion();
                 confi.Show();
+                conexion.conectar.Close();
             }
-
-
+            
+            
 
         }
+        
     }
 }
